@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        weatherIcon.image = UIImage(named: "cloudy")
     }
 
     func getweatherData() {
@@ -40,8 +41,20 @@ class ViewController: UIViewController {
         task.resume()
     }
     
+    
+  //  func changeImageView(data: ) {
+        
+        
+ //   }
     @IBAction func getWeatherButton(_ sender: UIButton!) {
         getweatherData()
     }
 }
 
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        return true
+    }
+}

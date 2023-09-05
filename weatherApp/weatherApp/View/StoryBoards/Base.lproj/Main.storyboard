@@ -19,16 +19,18 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="2kZ-VG-hru">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-kx-Pb5">
-                                <rect key="frame" x="0.0" y="47" width="390" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-kx-Pb5">
+                                <rect key="frame" x="20" y="47" width="350" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="QgU-FJ-WbR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIZ-S7-ghY">
-                                <rect key="frame" x="130" y="152" width="130" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIZ-S7-ghY">
+                                <rect key="frame" x="20" y="152" width="350" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Y7L-7o-Qj3"/>
                                 </constraints>
@@ -39,7 +41,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="url-1p-kfr">
                                 <rect key="frame" x="140" y="262" width="110" height="110"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJm-db-J8y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJm-db-J8y">
                                 <rect key="frame" x="80" y="456" width="230" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="14H-JJ-1MZ"/>
@@ -50,6 +52,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8D-po-bfj">
                                 <rect key="frame" x="140" y="567" width="110" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Rq9-oj-lbc"/>
                                 </constraints>
@@ -69,14 +72,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bJm-db-J8y" secondAttribute="trailing" constant="80" id="1Ss-Oo-kR7"/>
                             <constraint firstItem="Jvf-kx-Pb5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="21R-rz-Aln"/>
                             <constraint firstItem="EIZ-S7-ghY" firstAttribute="top" secondItem="Jvf-kx-Pb5" secondAttribute="bottom" constant="60" id="4Zg-mO-moq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jvf-kx-Pb5" secondAttribute="trailing" id="6vx-zR-EeE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jvf-kx-Pb5" secondAttribute="trailing" constant="20" id="6vx-zR-EeE"/>
                             <constraint firstItem="e8D-po-bfj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="140" id="7tw-EM-dvY"/>
                             <constraint firstItem="url-1p-kfr" firstAttribute="top" secondItem="EIZ-S7-ghY" secondAttribute="bottom" constant="60" id="Cgw-em-a6F"/>
                             <constraint firstItem="2kZ-VG-hru" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ebu-06-28s"/>
-                            <constraint firstItem="Jvf-kx-Pb5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q92-5F-eRK"/>
+                            <constraint firstItem="Jvf-kx-Pb5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Q92-5F-eRK"/>
                             <constraint firstItem="2kZ-VG-hru" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QmX-YL-14P"/>
-                            <constraint firstItem="EIZ-S7-ghY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="TIc-PU-geG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EIZ-S7-ghY" secondAttribute="trailing" constant="130" id="VOI-Xo-heJ"/>
+                            <constraint firstItem="EIZ-S7-ghY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TIc-PU-geG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EIZ-S7-ghY" secondAttribute="trailing" constant="20" id="VOI-Xo-heJ"/>
                             <constraint firstAttribute="trailing" secondItem="2kZ-VG-hru" secondAttribute="trailing" id="cWm-JV-RaX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="url-1p-kfr" secondAttribute="trailing" constant="140" id="cqV-o4-TPb"/>
                             <constraint firstItem="bJm-db-J8y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="e85-hE-VOV"/>
