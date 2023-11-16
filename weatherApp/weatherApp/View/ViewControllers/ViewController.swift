@@ -9,14 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var searchTextField: UITextField!
-    @IBOutlet var weatherIcon: UIImageView!
-    @IBOutlet var countryLabel: UILabel!
-    @IBOutlet var weatherLabel: UILabel!
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherIcon.image = UIImage(named: "cloudy")
+        setBackgroundByTimezone(seconds: TimeZone.current.secondsFromGMT())
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(gestureAction))
+        self.view.addGestureRecognizer(tapGesture)
     }
 
     func getweatherData() {
@@ -31,10 +35,11 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.countryLabel.text = weather.city.name
                     if self.weatherLabel.text != nil{
-                        self.weatherLabel.text = String(Int(weather.list[0].main.temp - 273)) + " °C"
+                        self.weatherLabel.text = String(Int(weather.list[1].main.temp - 273)) + " °C"
                     } else {
                         self.weatherLabel.text = "-"
                     }
+                    self.setBackgroundByTimezone(seconds: weather.city.timezone)
                 }
             }
         }
@@ -42,19 +47,25 @@ class ViewController: UIViewController {
     }
     
     
-  //  func changeImageView(data: ) {
-        
-        
- //   }
+    func setBackgroundByTimezone(seconds: Int) {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(secondsFromGMT: seconds)
+        formatter.dateFormat = "HH"
+        let dateString = formatter.string(from: Date())
+        if let hours = Int(dateString) {
+            if hours >= 6 && hours <= 18 {
+                backgroundImageView.image = UIImage(named: "day")
+            } else {
+                backgroundImageView.image = UIImage(named: "night")
+            }
+        }
+    }
+    
+    @objc func gestureAction() {
+        searchTextField.resignFirstResponder()
+    }
+    
     @IBAction func getWeatherButton(_ sender: UIButton!) {
         getweatherData()
-    }
-}
-
-extension ViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        return true
     }
 }
