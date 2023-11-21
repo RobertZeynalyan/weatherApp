@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var searchButton: UIButton!
-    var cVC = CollectionViewCell()
+//    var publicBool: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     
     func configTableView() {
         tableView.register(UINib(nibName: "TableViewCell", bundle: .none), forCellReuseIdentifier: "TableViewCell")
+        tableView.register(UINib(nibName: "SecondTableViewCell", bundle: .none), forCellReuseIdentifier: "SecondTableViewCell")
         tableView.backgroundColor = nil
     }
     
@@ -83,6 +84,7 @@ class ViewController: UIViewController {
         countryLabel.textColor = UIColor.black
         searchButton.backgroundColor = UIColor.black
         searchButton.tintColor = UIColor.white
+//        publicBool = true
     }
     
     func changeNightColors() {
@@ -91,6 +93,7 @@ class ViewController: UIViewController {
         countryLabel.textColor = UIColor.white
         searchButton.backgroundColor = UIColor.white
         searchButton.tintColor = UIColor.black
+//        publicBool = false
     }
     
     @objc func gestureAction() {
@@ -111,10 +114,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
         switch indexPath.row {
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SecondTableViewCell", for: indexPath) as! SecondTableViewCell
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SecondTableViewCell", for: indexPath) as! SecondTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
             return cell
         }
     }

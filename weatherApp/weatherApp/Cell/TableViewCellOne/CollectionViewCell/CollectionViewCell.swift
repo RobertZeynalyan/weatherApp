@@ -12,10 +12,11 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView?
     @IBOutlet weak var celsiusLabel: UILabel!
+    var vc = ViewController()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+//        changeDayColors()
     }
 
     func setup(model: CollectionViewDemoModel) {
@@ -23,4 +24,16 @@ class CollectionViewCell: UICollectionViewCell {
         imageView = model.image
         celsiusLabel.text = model.celsius
     }
+    
+//    func changeDayColors() {
+//        if let bol = vc.publicBool {
+//            timeLabel.textColor = UIColor.white
+//            celsiusLabel.textColor = UIColor.white
+//            imageView?.tintColor = UIColor.white
+//        } else {
+//            timeLabel.textColor = UIColor.black
+//            celsiusLabel.textColor = UIColor.black
+//            imageView?.tintColor = UIColor.black
+//        }
+//    }
 }
