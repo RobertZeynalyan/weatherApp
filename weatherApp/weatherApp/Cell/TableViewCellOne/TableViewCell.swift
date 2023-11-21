@@ -10,7 +10,6 @@ import UIKit
 class TableViewCell: UITableViewCell {
     
     var collData = CollData()
-    var vc = ViewController()
     @IBOutlet weak var headerText: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -29,14 +28,6 @@ class TableViewCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-//    
-//    func changeDayColors() {
-//        if let bol = vc.publicBool {
-//            headerText.textColor = UIColor.white
-//        } else {
-//            headerText.textColor = UIColor.black
-//        }
-//    }
 }
 
 extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
