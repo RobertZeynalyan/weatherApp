@@ -18,17 +18,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        addTapGesture()
         configTableView()
         setBackgroundByTimezone(seconds: TimeZone.current.secondsFromGMT())
     }
 
+    func addTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(gestureAction))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func gestureAction() {
+        searchBar.resignFirstResponder()
+    }
+    
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
     func setupSearchBar() {
         searchBar.delegate = self
     }
+    
     func configTableView() {
         tableView.register(UINib(nibName: "TableViewCell", bundle: .none), forCellReuseIdentifier: "TableViewCell")
         tableView.register(UINib(nibName: "SecondTableViewCell", bundle: .none), forCellReuseIdentifier: "SecondTableViewCell")
