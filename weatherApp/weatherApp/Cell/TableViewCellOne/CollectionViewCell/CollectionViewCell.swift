@@ -24,16 +24,4 @@ class CollectionViewCell: UICollectionViewCell {
         imageView = model.image
         celsiusLabel.text = model.celsius
     }
-    
-//    func changeDayColors() {
-//        if let bol = vc.publicBool {
-//            timeLabel.textColor = UIColor.white
-//            celsiusLabel.textColor = UIColor.white
-//            imageView?.tintColor = UIColor.white
-//        } else {
-//            timeLabel.textColor = UIColor.black
-//            celsiusLabel.textColor = UIColor.black
-//            imageView?.tintColor = UIColor.black
-//        }
-//    }
 }

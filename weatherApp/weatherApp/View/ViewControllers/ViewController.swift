@@ -9,17 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var searchButton: UIButton!
-//    var publicBool: Bool?
-    
+    @IBOutlet weak var searchBar: UISearchBar!
+    var temp: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        addTapGesture()
         setupTableView()
         configTableView()
         setBackgroundByTimezone(seconds: TimeZone.current.secondsFromGMT())
@@ -29,12 +26,9 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
-    func addTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(gestureAction))
-        self.view.addGestureRecognizer(tapGesture)
+    func setupSearchBar() {
+        searchBar.delegate = self
     }
-    
     func configTableView() {
         tableView.register(UINib(nibName: "TableViewCell", bundle: .none), forCellReuseIdentifier: "TableViewCell")
         tableView.register(UINib(nibName: "SecondTableViewCell", bundle: .none), forCellReuseIdentifier: "SecondTableViewCell")
@@ -42,7 +36,7 @@ class ViewController: UIViewController {
     }
     
     func getweatherData() {
-        var searchText = (searchTextField.text ?? "").count > 0 ? searchTextField.text! : "Abovyan"
+        var searchText = temp.count > 0 ? searchBar.text! : "Abovyan"
         searchText = searchText.replacingOccurrences(of: " ", with: "%20")
         let urlString = "http://api.openweathermap.org/data/2.5/forecast?q=\(searchText)&appid=6533c74fd4ef56416b82a72fb0e52a08"
         let url = URL(string: urlString)!
@@ -77,31 +71,16 @@ class ViewController: UIViewController {
             }
         }
     }
-    
     func changeDayColors() {
         backgroundImageView.image = UIImage(named: "day")
         weatherLabel.textColor = UIColor.black
         countryLabel.textColor = UIColor.black
-        searchButton.backgroundColor = UIColor.black
-        searchButton.tintColor = UIColor.white
-//        publicBool = true
     }
     
     func changeNightColors() {
         backgroundImageView.image = UIImage(named: "night")
         weatherLabel.textColor = UIColor.white
         countryLabel.textColor = UIColor.white
-        searchButton.backgroundColor = UIColor.white
-        searchButton.tintColor = UIColor.black
-//        publicBool = false
-    }
-    
-    @objc func gestureAction() {
-        searchTextField.resignFirstResponder()
-    }
-    
-    @IBAction func getWeatherButton(_ sender: UIButton!) {
-        getweatherData()
     }
 }
 
@@ -120,5 +99,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
             return cell
         }
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text?.isEmpty != nil {
+            temp = searchBar.text!
+        }
+        getweatherData()
+        searchBar.resignFirstResponder()
     }
 }

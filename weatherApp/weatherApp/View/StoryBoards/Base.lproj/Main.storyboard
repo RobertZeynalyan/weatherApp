@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,18 +20,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NWM-Xx-WNQ">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-kx-Pb5">
-                                <rect key="frame" x="20" y="77" width="330" height="45"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="">
-                                        <nil key="value"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIZ-S7-ghY">
                                 <rect key="frame" x="20" y="152" width="350" height="50"/>
                                 <constraints>
@@ -47,63 +34,48 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8D-po-bfj">
-                                <rect key="frame" x="314" y="69" width="60" height="61"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="3zG-uJ-6k2"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal">
-                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                    <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="getWeatherButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bTk-14-Yo0"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-az-6pI">
                                 <rect key="frame" x="20" y="283.33333333333331" width="350" height="526.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="V2O-RT-wbm">
+                                <rect key="frame" x="20" y="47" width="350" height="65"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="8PG-Ek-UAq"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xVA-SY-b3w"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
-                            <constraint firstItem="Jvf-kx-Pb5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="0vM-L7-Lmm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bJm-db-J8y" secondAttribute="trailing" constant="20" id="1Ss-Oo-kR7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xaf-az-6pI" secondAttribute="bottom" id="20E-ux-yoo"/>
                             <constraint firstItem="Xaf-az-6pI" firstAttribute="top" secondItem="bJm-db-J8y" secondAttribute="bottom" constant="40" id="42j-XN-MML"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jvf-kx-Pb5" secondAttribute="trailing" constant="40" id="6vx-zR-EeE"/>
                             <constraint firstItem="Xaf-az-6pI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8Rs-fO-XTn"/>
+                            <constraint firstItem="V2O-RT-wbm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="B3J-WR-vPB"/>
                             <constraint firstAttribute="bottom" secondItem="NWM-Xx-WNQ" secondAttribute="bottom" id="Bni-u8-s9V"/>
-                            <constraint firstItem="Jvf-kx-Pb5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Q92-5F-eRK"/>
                             <constraint firstItem="EIZ-S7-ghY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TIc-PU-geG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EIZ-S7-ghY" secondAttribute="trailing" constant="20" id="VOI-Xo-heJ"/>
-                            <constraint firstItem="e8D-po-bfj" firstAttribute="centerY" secondItem="Jvf-kx-Pb5" secondAttribute="centerY" id="VdN-a7-7jN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NWM-Xx-WNQ" secondAttribute="trailing" id="d3r-vZ-1o7"/>
                             <constraint firstItem="bJm-db-J8y" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="199" id="dAR-U7-AU7"/>
                             <constraint firstItem="bJm-db-J8y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="e85-hE-VOV"/>
+                            <constraint firstItem="V2O-RT-wbm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="heX-6t-aPJ"/>
                             <constraint firstItem="NWM-Xx-WNQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hlL-b0-AB2"/>
-                            <constraint firstItem="EIZ-S7-ghY" firstAttribute="top" secondItem="Jvf-kx-Pb5" secondAttribute="bottom" constant="30" id="lWx-tz-YFq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xaf-az-6pI" secondAttribute="trailing" constant="20" id="qpd-Ey-a1h"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e8D-po-bfj" secondAttribute="trailing" constant="16" id="t9d-2C-F9d"/>
                             <constraint firstItem="NWM-Xx-WNQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wA4-Hv-FQb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EIZ-S7-ghY" secondAttribute="bottom" constant="608" id="y4w-eh-mfM"/>
-                            <constraint firstItem="e8D-po-bfj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="zJt-Qd-CTC"/>
+                            <constraint firstItem="V2O-RT-wbm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yh5-NG-x98"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="NWM-Xx-WNQ" id="BGI-8z-itY"/>
                         <outlet property="countryLabel" destination="bJm-db-J8y" id="7u8-5g-O6A"/>
-                        <outlet property="searchButton" destination="e8D-po-bfj" id="MVG-VQ-IeX"/>
-                        <outlet property="searchTextField" destination="Jvf-kx-Pb5" id="PvQ-Bh-LS1"/>
+                        <outlet property="searchBar" destination="V2O-RT-wbm" id="Kvd-Dx-sTS"/>
                         <outlet property="tableView" destination="Xaf-az-6pI" id="I9h-Qg-9YS"/>
                         <outlet property="weatherLabel" destination="EIZ-S7-ghY" id="TBk-O1-hBj"/>
                     </connections>
@@ -114,7 +86,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
