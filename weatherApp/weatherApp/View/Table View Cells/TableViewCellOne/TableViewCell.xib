@@ -37,6 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.23137254901960785" green="0.27450980392156865" blue="0.39215686274509803" alpha="0.30862032312925169" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="sK1-nD-tvw" secondAttribute="bottom" constant="1" id="CuU-Xi-hJ3"/>
                     <constraint firstItem="zFP-gG-wuZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Nkg-qj-bN6"/>
@@ -46,6 +47,11 @@
                     <constraint firstItem="sK1-nD-tvw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="48" id="tbt-r6-EuU"/>
                     <constraint firstItem="zFP-gG-wuZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="yy6-C5-9Xp"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                        <integer key="value" value="10"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

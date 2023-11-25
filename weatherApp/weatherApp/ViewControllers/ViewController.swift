@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
 
@@ -15,21 +16,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     var temp: String = ""
+    private var locationProvider = LocationProvider()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         addTapGesture()
         configTableView()
         setBackgroundByTimezone(seconds: TimeZone.current.secondsFromGMT())
+        setupStyles()
+        locationProvider.locationUpdatedFirst = { [weak self] location in
+            self?.fetchCurrentCityData(location: location)
+        }
+    }
+    
+    func fetchCurrentCityData(location: CLLocation) {
+        location.fetchCityAndCountry { [weak self] city, country, error in
+            if let city = city {
+                self?.getweatherData(searchText: city)
+            }
+        }
     }
 
     func addTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(gestureAction))
+        tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
     }
     
     @objc func gestureAction() {
         searchBar.resignFirstResponder()
+    }
+    
+    func setupStyles() {
+        countryLabel.textDropShadow()
+        weatherLabel.textDropShadow()
     }
     
     func setupTableView() {
@@ -47,8 +68,8 @@ class ViewController: UIViewController {
         tableView.backgroundColor = nil
     }
     
-    func getweatherData() {
-        var searchText = temp.count > 0 ? searchBar.text! : "Abovyan"
+    func getweatherData(searchText: String) {
+        var searchText = searchText.isEmpty ? "Abovyan" : searchText
         searchText = searchText.replacingOccurrences(of: " ", with: "%20")
         let urlString = "http://api.openweathermap.org/data/2.5/forecast?q=\(searchText)&appid=6533c74fd4ef56416b82a72fb0e52a08"
         let url = URL(string: urlString)!
@@ -77,22 +98,11 @@ class ViewController: UIViewController {
         let dateString = formatter.string(from: Date())
         if let hours = Int(dateString) {
             if hours >= 6 && hours <= 18 {
-                changeDayColors()
+                backgroundImageView.image = UIImage(named: "day")
             } else {
-                changeNightColors()
+                backgroundImageView.image = UIImage(named: "night")
             }
         }
-    }
-    func changeDayColors() {
-        backgroundImageView.image = UIImage(named: "day")
-        weatherLabel.textColor = UIColor.black
-        countryLabel.textColor = UIColor.black
-    }
-    
-    func changeNightColors() {
-        backgroundImageView.image = UIImage(named: "night")
-        weatherLabel.textColor = UIColor.white
-        countryLabel.textColor = UIColor.white
     }
 }
 
@@ -120,7 +130,16 @@ extension ViewController: UISearchBarDelegate {
         if searchBar.text?.isEmpty != nil {
             temp = searchBar.text!
         }
-        getweatherData()
+        getweatherData(searchText: temp)
         searchBar.resignFirstResponder()
+    }
+}
+
+extension UILabel {
+    func textDropShadow() {
+        self.layer.masksToBounds = false
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSize(width: 1, height: 2)
     }
 }

@@ -42,5 +42,10 @@ extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("============================")
+        print("mtav \(indexPath.row)")
+        print("============================")
+    }
     
 }

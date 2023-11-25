@@ -18,32 +18,37 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFD-rL-mV0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="336"/>
+                        <rect key="frame" x="0.0" y="10" width="320" height="326"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="2" sectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Iui-TO-quJ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="336"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="3CS-ll-JnK"/>
-                                    <constraint firstAttribute="height" constant="336" id="c4b-Np-IWg"/>
+                                    <constraint firstAttribute="height" constant="326" id="Djq-Bg-Rym"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.23137254901960785" green="0.27450980392156865" blue="0.39215686274509803" alpha="0.31" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Iui-TO-quJ" secondAttribute="bottom" id="3Tk-zh-C5z"/>
                             <constraint firstAttribute="trailing" secondItem="Iui-TO-quJ" secondAttribute="trailing" id="6Ih-7M-CDB"/>
                             <constraint firstItem="Iui-TO-quJ" firstAttribute="leading" secondItem="HFD-rL-mV0" secondAttribute="leading" id="Wjx-4H-K6e"/>
                             <constraint firstItem="Iui-TO-quJ" firstAttribute="top" secondItem="HFD-rL-mV0" secondAttribute="top" id="oNQ-F7-nez"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="HFD-rL-mV0" secondAttribute="trailing" id="c2P-gs-FmC"/>
                     <constraint firstItem="HFD-rL-mV0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jFb-g4-7Jl"/>
-                    <constraint firstItem="HFD-rL-mV0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xDU-c8-NHf"/>
+                    <constraint firstItem="HFD-rL-mV0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xDU-c8-NHf"/>
                     <constraint firstAttribute="bottom" secondItem="HFD-rL-mV0" secondAttribute="bottom" id="ydR-3h-tyc"/>
                 </constraints>
             </tableViewCellContentView>
