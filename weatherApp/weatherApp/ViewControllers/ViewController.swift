@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     var temp: String = ""
+    var weatherFromHours: [Double] = []
     private var locationProvider = LocationProvider()
     
     override func viewDidLoad() {
@@ -46,6 +47,7 @@ class ViewController: UIViewController {
     
     @objc func gestureAction() {
         searchBar.resignFirstResponder()
+        print(weatherFromHours)
     }
     
     func setupStyles() {
@@ -69,7 +71,7 @@ class ViewController: UIViewController {
     }
     
     func getweatherData(searchText: String) {
-        var searchText = searchText.isEmpty ? "Abovyan" : searchText
+        var searchText = searchText.isEmpty ? "San Francisco" : searchText
         searchText = searchText.replacingOccurrences(of: " ", with: "%20")
         let urlString = "http://api.openweathermap.org/data/2.5/forecast?q=\(searchText)&appid=6533c74fd4ef56416b82a72fb0e52a08"
         let url = URL(string: urlString)!
@@ -79,11 +81,14 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.countryLabel.text = weather.city.name
                     if self.weatherLabel.text != nil{
-                        self.weatherLabel.text = String(Int(weather.list[1].main.temp - 273)) + "°C"
+                        self.weatherLabel.text = String(Int(weather.list[0].main.temp - 273)) + "°C"
                     } else {
                         self.weatherLabel.text = "-"
                     }
                     self.setBackgroundByTimezone(seconds: weather.city.timezone)
+                    for item in weather.list [0...4] {
+                        self.weatherFromHours.append(item.main.temp)
+                    }
                 }
             }
         }
@@ -136,6 +141,7 @@ extension ViewController: UISearchBarDelegate {
 }
 
 extension UILabel {
+    
     func textDropShadow() {
         self.layer.masksToBounds = false
         self.layer.shadowRadius = 2.0

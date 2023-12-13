@@ -83,11 +83,11 @@
 			isa = PBXGroup;
 			children = (
 				E1E6A4FB2B0E66B5006AFA96 /* Helpers */,
-				48F351402AA533E800A1FD2B /* Models */,
-				48F351442AA5341A00A1FD2B /* StoryBoards */,
-				48F351432AA5340D00A1FD2B /* ViewControllers */,
-				48F351422AA5340800A1FD2B /* View */,
 				48F351412AA533F400A1FD2B /* Delegates */,
+				48F351432AA5340D00A1FD2B /* ViewControllers */,
+				48F351442AA5341A00A1FD2B /* StoryBoards */,
+				48F351402AA533E800A1FD2B /* Models */,
+				48F351422AA5340800A1FD2B /* View */,
 				48BBFBC02AA0DEC40043559A /* Assets.xcassets */,
 				48BBFBC22AA0DEC40043559A /* LaunchScreen.storyboard */,
 				48BBFBC52AA0DEC40043559A /* Info.plist */,
@@ -98,6 +98,7 @@
 		48F351402AA533E800A1FD2B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E1BBAEA52B0C003D00CDB813 /* Models */,
 				48F3513E2AA533CF00A1FD2B /* WeatherData.swift */,
 				E1D71EB52B09692600D3E762 /* Demo */,
 			);
@@ -196,7 +197,6 @@
 		E1D71EB52B09692600D3E762 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				E1BBAEA52B0C003D00CDB813 /* Models */,
 				E1D71EB62B09693800D3E762 /* Data.swift */,
 			);
 			path = Demo;
